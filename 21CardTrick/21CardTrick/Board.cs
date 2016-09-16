@@ -8,5 +8,23 @@ namespace _21CardTrick
 {
     class Board
     {
+        //members
+        private Column[] columns;
+
+        //constructors
+        public Board()
+        {
+            columns = new Column[3];
+            for (int i = 0; i < 3; i++)
+            {
+                columns[i] = new Column(i);
+            }
+        }
+
+        //methods
+        public void addToColumn(int id, Card card)
+        {
+            columns[id].addCard(card);
+        }
     }
 }
