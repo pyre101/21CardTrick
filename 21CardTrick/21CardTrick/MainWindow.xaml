@@ -5,8 +5,182 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_21CardTrick"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="21 Card Trick" Height="800" Width="600">
+    <Window.DataContext>
+        <local:Board/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <DataTemplate x:Key="CardFront" DataType="{x:Type local:Card}">
+
+            <Grid Background="White" Height="160" Width="118" Margin="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBox  Text="{Binding Path=FaceValue, Mode=OneWay}" Grid.Column="0" Grid.Row="0" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="30" TextAlignment="Center" IsReadOnly="True" Cursor="Arrow" IsTabStop="False" Focusable="False" SelectionBrush="{x:Null}" SelectionOpacity="0" BorderThickness="0">
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Spade">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Club">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Diamond">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Heart">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <Image x:Name="image" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Spade">
+                                    <Setter Property="Source" Value="Images/spade.png"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Club">
+                                    <Setter Property="Source" Value="Images/club.png"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Diamond">
+                                    <Setter Property="Source" Value="Images/diamond.png"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Heart">
+                                    <Setter Property="Source" Value="Images/heart.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+
+                <TextBox  Text="{Binding Path=FaceValue, Mode=OneWay}" Grid.Column="2" Grid.Row="2" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="30" TextAlignment="Center" IsReadOnly="True" Cursor="Arrow" IsTabStop="False" Focusable="False" SelectionBrush="{x:Null}" SelectionOpacity="0" BorderThickness="0">
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Spade">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Club">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Diamond">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Path=Suit}" Value="Heart">
+                                    <Setter Property="Foreground" Value="Red"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="CardBack" DataType="{x:Type local:Card}">
+            <!-- <Image Height="175" Width="120" Stretch="Fill" Source="Images/CardBack.png"/> -->
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Card}" >
+            <ContentControl Content="{Binding}">
+                <ContentControl.Style>
+                    <Style TargetType="{x:Type ContentControl}">
+                        <Setter Property="ContentTemplate" Value="{StaticResource CardBack}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Visible}" Value="True">
+                                <Setter Property="ContentTemplate" Value="{StaticResource CardFront}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid x:Name="grdWindow">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF115533" Offset="0"/>
+                <GradientStop Color="#FF004422" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" /> <!-- White space -->
+            <ColumnDefinition Width="2*" /> <!-- Card column 1 -->
+            <ColumnDefinition Width="*" /> <!-- White space --> 
+            <ColumnDefinition Width="2*" /> <!--Card column 2 -->
+            <ColumnDefinition Width="*" /> <!-- White space -->
+            <ColumnDefinition Width="2*" /> <!-- Card column 3 -->
+            <ColumnDefinition Width="*" /> <!-- White space -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" /> <!-- White space -->
+            <RowDefinition Height="2*" /> <!-- Header box -->
+            <RowDefinition Height="*" /> <!-- White space -->
+            <RowDefinition Height="2*" /> <!-- Column titles -->
+            <RowDefinition Height="*" /> <!-- White space -->
+            <RowDefinition Height="2*" /> <!-- Card row 1 -->
+            <RowDefinition Height="2*" /> <!-- Card row 2 -->
+            <RowDefinition Height="2*" /> <!-- Card row 3 -->
+            <RowDefinition Height="2*" /> <!-- Card row 4 -->
+            <RowDefinition Height="2*" /> <!-- Card row 5 -->
+            <RowDefinition Height="2*" /> <!-- Card row 6 -->
+            <RowDefinition Height="2*" /> <!-- Card row 7 -->
+            <RowDefinition Height="*" /> <!-- White space -->
+            <RowDefinition Height="1.5*" /> <!-- Button row -->
+            <RowDefinition Height="*" /> <!-- White space -->
+        </Grid.RowDefinitions>
         
+        <TextBlock x:Name="rtbTitle" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" Background="#33000000" TextAlignment="Center" FontSize="40">
+            21 Card Trick
+        </TextBlock>
+        
+        <!-- Column Headers -->
+        <TextBlock x:Name="tbCol1Header" Grid.Column="1" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="20px" >Column 1</TextBlock>
+        <TextBlock x:Name="tbCol2Header" Grid.Column="3" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="20px" >Column 2</TextBlock>
+        <TextBlock x:Name="tbCol3Header" Grid.Column="5" Grid.Row="3" TextAlignment="Center" VerticalAlignment="Center" FontSize="20px" >Column 3</TextBlock>
+        
+        <!-- Card Columns -->
+        
+        <!-- Column 1 -->
+        <ItemsControl x:Name="col1" Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Board.Card1}" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <!-- Column 2 -->
+
+        <!-- Column 3 -->
+        
+        
+        <!-- Column selecting buttons -->
+        <Button x:Name="btnCol1" Grid.Column="1" Grid.Row="13" >Column 1</Button>
+
+        <Button x:Name="btnCol2" Grid.Column="3" Grid.Row="13" >Column 2</Button>
+
+        <Button x:Name="btnCol3" Grid.Column="5" Grid.Row="13" >Column 3</Button>
     </Grid>
 </Window>
