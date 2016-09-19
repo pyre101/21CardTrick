@@ -51,6 +51,8 @@ namespace _21CardTrick
 
         private void Random21()
         {
+            deckOf21 = new Card[21];
+
             for (int i = 0; i < 21; i++)
             {
                 deckOf21[i] = fullDeck[i];
