@@ -165,7 +165,7 @@
         <!-- Card Columns -->
         
         <!-- Column 1 -->
-        <ItemsControl x:Name="col1" Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Board.Card1}" >
+        <ItemsControl x:Name="col1" Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Board.Columns[1]}" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" />
