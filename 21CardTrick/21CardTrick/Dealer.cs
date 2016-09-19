@@ -10,15 +10,17 @@ namespace _21CardTrick
     {
         //members/properties
         private int dealNum;
-        private Deck cardDeck;   //may cause some issues(?) with UI 
-        private Board cardBoard;
+        //private Deck cardDeck;   //may cause some issues(?) with UI 
+        private Board cardBoard; 
         public Player player;
+        private Card[] cards21;
 
 
         //constructor
         Dealer()
         {
             dealNum = 0;
+            cards21 = new Card[21];
         }
 
         //methods
@@ -31,18 +33,18 @@ namespace _21CardTrick
             {
                 if (columnNum == 2)
                 {
-                    cardBoard.addToColumn(columnNum, cardDeck.deckOf21[i]);
+                    cardBoard.addToColumn(columnNum, cards21[i]);
                     columnNum = 0;
                 }
                if (columnNum == 1)
                 {
-                    cardBoard.addToColumn(columnNum, cardDeck.deckOf21[i]);
+                    cardBoard.addToColumn(columnNum, cards21[i]);
                     columnNum++;
                 }
 
                 if (columnNum == 0)
                 {
-                    cardBoard.addToColumn(columnNum, cardDeck.deckOf21[i]);
+                    cardBoard.addToColumn(columnNum, cards21[i]);
                     columnNum++;
                 }
             }
@@ -51,16 +53,16 @@ namespace _21CardTrick
 
         public Card revealCard()
         {
-            return Card;
+            return Card; //card [10] = 11th card
         }
 
         public void pickupCards()
         {
             int chosenCol = player.indicateCouloumn();  //Dealer needs to know what column player chooses
-            Column tempCol = cardBoard.columns[2];
+            Column tempCol = cardBoard.columns[1];
 
             //switch columns so chosen column is in middle
-            cardBoard.columns[2] = cardBoard.columns[chosenCol];
+            cardBoard.columns[1] = cardBoard.columns[chosenCol];
             cardBoard.columns[chosenCol] = tempCol;
 
             int indexRan = 0; //index for where deckOf21 is at
