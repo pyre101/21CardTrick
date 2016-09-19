@@ -38,5 +38,10 @@ namespace _21CardTrick
         {
             return id;
         }
+
+        public Card[] getCards()
+        {
+            return cards;
+        }
     }
 }

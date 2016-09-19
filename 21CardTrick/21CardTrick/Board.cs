@@ -26,5 +26,10 @@ namespace _21CardTrick
         {
             columns[id].addCard(card);
         }
+
+        public Card[] pickupColumn(int colId)
+        {
+            return columns[colId].getCards();
+        }
     }
 }
