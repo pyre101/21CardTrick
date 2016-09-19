@@ -53,10 +53,10 @@ namespace _21CardTrick
 
         public Card revealCard()
         {
-            return Card; //card [10] = 11th card
+            return cards21[10]; //card [10] = 11th card
         }
 
-        public void pickupCards()
+        public void pickupCards()  //issue!!!!!!!
         {
             int chosenCol = player.indicateCouloumn();  //Dealer needs to know what column player chooses
             Column tempCol = cardBoard.columns[1];

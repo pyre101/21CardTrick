@@ -12,9 +12,9 @@ namespace _21CardTrick
         private Card selectedCard;
 
 
-        public Column indicateCouloumn(Column[] coloumns, int coulmnNumber)
+        public int indicateCouloumn( int coulmnNumber)
         {
-            return coloumns[coulmnNumber];
+            return coulmnNumber;
         }
 
 
