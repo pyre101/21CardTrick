@@ -85,22 +85,22 @@ namespace _21CardTrick
             }
         }
 
-        /// <summary>
-        /// _Visible Property
-        /// </summary>
-        private bool _Visible;
-        public bool Visible
-        {
-            get
-            {
-                return _Visible;
-            }
-            set
-            {
-                _Visible = value;
-                OnPropertyChanged();
-            }
-        }
+        ///// <summary>
+        ///// _Visible Property
+        ///// </summary>
+        //private bool _Visible;
+        //public bool Visible
+        //{
+        //    get
+        //    {
+        //        return _Visible;
+        //    }
+        //    set
+        //    {
+        //        _Visible = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
         #endregion // Properties
 
 

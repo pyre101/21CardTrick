@@ -26,28 +26,13 @@ namespace _21CardTrick
         //methods
         public void Deal()
         {
-            int columnNum = 0;
+            
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
             //addToColumn(int id, Card card)  id is column
             {
-                if (columnNum == 2)
-                {
-                    cardBoard.addToColumn(columnNum, cards21[i]);
-                    columnNum = 0;
-                }
-               if (columnNum == 1)
-                {
-                    cardBoard.addToColumn(columnNum, cards21[i]);
-                    columnNum++;
-                }
-
-                if (columnNum == 0)
-                {
-                    cardBoard.addToColumn(columnNum, cards21[i]);
-                    columnNum++;
-                }
-            }
+                cardBoard.addToColumn(i%3, cards21[i]);
+            }            
             dealNum++;
         }
 
@@ -56,19 +41,40 @@ namespace _21CardTrick
             return cards21[10]; //card [10] = 11th card
         }
 
-        public void pickupCards()  //issue!!!!!!!
+        public void pickupCards(int columnNum)  
         {
-            int chosenCol = player.indicateCouloumn();  //Dealer needs to know what column player chooses
-            Column tempCol = cardBoard.columns[1];
+            Card[] tempCol = cardBoard.pickupColumn(columnNum);
+            for (int i = 7; i < 14; i++)  //0-6, 7-13, 14-20
+                cards21[i] = tempCol[i - 7];
 
-            //switch columns so chosen column is in middle
-            cardBoard.columns[1] = cardBoard.columns[chosenCol];
-            cardBoard.columns[chosenCol] = tempCol;
+            if (columnNum == 0)
+            {
+                tempCol = cardBoard.pickupColumn(1);
+                for (int i = 0; i < 7; i++)  //0-6
+                    cards21[i] = tempCol[i];
+                tempCol = cardBoard.pickupColumn(2);
+                for (int i = 0; i < 7; i++)
+                    cards21[i + 14] = tempCol[i];
+            }
+            if (columnNum == 1)
+            {
+                tempCol = cardBoard.pickupColumn(0);
+                for (int i = 0; i < 7; i++)  //0-6
+                    cards21[i] = tempCol[i];
+                tempCol = cardBoard.pickupColumn(2);
+                for (int i = 0; i < 7; i++)
+                    cards21[i + 14] = tempCol[i];
+            }
+            if (columnNum == 2)
+            {
 
-            int indexRan = 0; //index for where deckOf21 is at
-            for (int i = 0; i < 3; i++)  //loads the deck from column 1 to column 3
-                for (int j = 0; j < 7; j++)
-                    cardDeck.deckOf21[indexRan] = cardBoard.columns[i].cards[j];
-        }
+                tempCol = cardBoard.pickupColumn(0);
+                for (int i = 0; i < 7; i++)  //0-6
+                    cards21[i] = tempCol[i];
+                tempCol = cardBoard.pickupColumn(1);
+                for (int i = 0; i < 7; i++)
+                    cards21[i + 14] = tempCol[i];
+            }
+         }
     }
 }

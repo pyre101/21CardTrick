@@ -28,6 +28,14 @@ namespace _21CardTrick
         {
             columns[id].addCard(card);
         }
+<<<<<<< HEAD
 //>>>>>>> refs/remotes/origin/master
+=======
+
+        public Card[] pickupColumn(int colId)
+        {
+            return columns[colId].getCards();
+        }
+>>>>>>> refs/remotes/origin/master
     }
 }
