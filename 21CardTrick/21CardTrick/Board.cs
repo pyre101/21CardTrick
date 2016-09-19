@@ -9,7 +9,7 @@ namespace _21CardTrick
     class Board
     {
         //members
-        private Column[] columns;
+        public Column[] columns; 
 
         //constructors
         public Board()

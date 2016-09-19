@@ -34,7 +34,7 @@ namespace _21CardTrick
 
         //Variables
         private Card[] fullDeck;
-        private Card[] deckOf21;
+        public Card[] deckOf21;   //issue with Dealer; need access to this
         private int cardCount = 0;
         private static Random rng = new Random();
 

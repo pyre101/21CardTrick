@@ -11,7 +11,7 @@ namespace _21CardTrick
         //members
         private int id;
         private int index;
-        private Card[] cards;
+        public Card[] cards;
 
         //constructors
         public Column()
