@@ -33,5 +33,10 @@ namespace _21CardTrick
         {
             cards[index++] = card;
         }
+
+        public int getId()
+        {
+            return id;
+        }
     }
 }
