@@ -56,19 +56,19 @@ namespace _21CardTrick
             return cards21[10]; //card [10] = 11th card
         }
 
-        public void pickupCards()  //issue!!!!!!!
+        public void pickupCards(int columnNum)  //issue!!!!!!!
         {
-            int chosenCol = player.indicateCouloumn();  //Dealer needs to know what column player chooses
+            //int chosenCol = player.indicateCouloumn();  //Dealer needs to know what column player chooses
             Column tempCol = cardBoard.columns[1];
 
             //switch columns so chosen column is in middle
-            cardBoard.columns[1] = cardBoard.columns[chosenCol];
-            cardBoard.columns[chosenCol] = tempCol;
+            cardBoard.columns[1] = cardBoard.columns[columnNum];
+            cardBoard.columns[columnNum] = tempCol;
 
             int indexRan = 0; //index for where deckOf21 is at
             for (int i = 0; i < 3; i++)  //loads the deck from column 1 to column 3
                 for (int j = 0; j < 7; j++)
-                    cardDeck.deckOf21[indexRan] = cardBoard.columns[i].cards[j];
+                    cards21[indexRan] = cardBoard.columns[i].cards[j];
         }
     }
 }

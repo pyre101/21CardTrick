@@ -10,11 +10,12 @@ namespace _21CardTrick
     {
         public bool hasCardSelected;
         private Card selectedCard;
+        private int lastColumnSelect = -1;
 
 
-        public int indicateCouloumn( int coulmnNumber)
+        public int indicateCouloumn(int columnNum)
         {
-            return coulmnNumber;
+            return lastColumnSelect;
         }
 
 
