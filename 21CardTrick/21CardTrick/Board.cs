@@ -11,7 +11,7 @@ namespace _21CardTrick
 //<<<<<<< HEAD
 //=======
         //members
-        private Column[] columns;
+        public Column[] columns; 
 
         //constructors
         public Board()

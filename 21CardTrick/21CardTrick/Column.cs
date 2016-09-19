@@ -11,7 +11,7 @@ namespace _21CardTrick
         //members
         private int id;
         private int index;
-        private Card[] cards;
+        public Card[] cards;
 
         //constructors
         public Column()
@@ -32,6 +32,11 @@ namespace _21CardTrick
         public void addCard(Card card)
         {
             cards[index++] = card;
+        }
+
+        public int getId()
+        {
+            return id;
         }
     }
 }

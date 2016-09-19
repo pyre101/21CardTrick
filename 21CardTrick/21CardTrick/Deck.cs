@@ -8,33 +8,9 @@ namespace _21CardTrick
 {
     class Deck
     {
-        //variables
-        //constructor
-        //create deck array[52]
-        //add cards to deck
-        //shuffle deck
-        //shuffle function
-
-
-        //private static Random rng = new Random();
-
-        //public static void Shuffle<T>(this IList<T> list)
-        //{
-        //    int n = list.Count;
-        //    while (n > 1)
-        //    {
-        //        n--;
-        //        int k = rng.Next(n + 1);
-        //        T value = list[k];
-        //        list[k] = list[n];
-        //        list[n] = value;
-        //    }
-        //}
-
-
         //Variables
         private Card[] fullDeck;
-        private Card[] deckOf21;
+        public Card[] deckOf21;
         private int cardCount = 0;
         private static Random rng = new Random();
 
@@ -56,11 +32,11 @@ namespace _21CardTrick
             //Shuffle deck
             Shuffle();
 
-            //Return 21 cards
+            //Create 21 card deck
             Random21();
         }
 
-        public void Shuffle()
+        private void Shuffle()
         {
             int n = fullDeck.Length;
             while (n > 1)
@@ -73,14 +49,12 @@ namespace _21CardTrick
             }
         }
 
-        public Card[] Random21()
+        private void Random21()
         {
             for (int i = 0; i < 21; i++)
             {
                 deckOf21[i] = fullDeck[i];
             }
-
-            return deckOf21;
         }
     }
 }
