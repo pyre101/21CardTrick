@@ -24,5 +24,20 @@ namespace _21CardTrick
         {
             InitializeComponent();
         }
+
+        private void btnCol1_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnCol2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCol3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -178,10 +178,10 @@
         
         
         <!-- Column selecting buttons -->
-        <Button x:Name="btnCol1" Grid.Column="1" Grid.Row="13" >Column 1</Button>
+        <Button x:Name="btnCol1" Grid.Column="1" Grid.Row="13" Click="btnCol1_Click" >Column 1</Button>
 
-        <Button x:Name="btnCol2" Grid.Column="3" Grid.Row="13" >Column 2</Button>
+        <Button x:Name="btnCol2" Grid.Column="3" Grid.Row="13" Click="btnCol2_Click" >Column 2</Button>
 
-        <Button x:Name="btnCol3" Grid.Column="5" Grid.Row="13" >Column 3</Button>
+        <Button x:Name="btnCol3" Grid.Column="5" Grid.Row="13" Click="btnCol3_Click" >Column 3</Button>
     </Grid>
 </Window>
