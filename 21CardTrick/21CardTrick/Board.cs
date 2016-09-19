@@ -8,29 +8,8 @@ namespace _21CardTrick
 {
     class Board
     {
-<<<<<<< HEAD
-        #region TempCode
-        /*Temp code to test the GUI with*/
-        Board()
-        {
-            c1 = new Card();
-            c1.Suit = Card.CardSuit.Club;
-            c1.Value = 5;
-        }
-        private Card c1;
-        public Card Card1
-        {
-            get
-            {
-                return c1;
-            }
-            set
-            {
-                c1 = value;
-            }
-        }
-        #endregion
-=======
+//<<<<<<< HEAD
+//=======
         //members
         private Column[] columns;
 
@@ -49,6 +28,6 @@ namespace _21CardTrick
         {
             columns[id].addCard(card);
         }
->>>>>>> refs/remotes/origin/master
+//>>>>>>> refs/remotes/origin/master
     }
 }

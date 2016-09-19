@@ -7,6 +7,25 @@ namespace _21CardTrick
 {
     class Card : INotifyPropertyChanged
     {
+        public Card() { }
+
+        public Card(int value, int suit)
+        {
+            _Value = value;
+
+            if(suit == 0){
+                Suit = CardSuit.Club;
+            }
+            else if (suit == 1){
+                Suit = CardSuit.Diamond;
+	        }
+            else if (suit == 2){
+                Suit = CardSuit.Heart;
+            }
+            else if (suit == 3){
+                Suit = CardSuit.Spade;
+            }
+        }
         #region Properties
         /// <summary>
         /// Card Suit enumeration
