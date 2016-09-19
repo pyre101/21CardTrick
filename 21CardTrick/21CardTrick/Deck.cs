@@ -10,7 +10,7 @@ namespace _21CardTrick
     {
         //Variables
         private Card[] fullDeck;
-        public Card[] deckOf21;
+        private Card[] deckOf21;
         private int cardCount = 0;
         private static Random rng = new Random();
 
