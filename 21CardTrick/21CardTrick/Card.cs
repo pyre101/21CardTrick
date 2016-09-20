@@ -103,6 +103,10 @@ namespace _21CardTrick
         //}
         #endregion // Properties
 
+        public string ToStringAlt()
+        {
+            return "Value: " + _Value + " Suit: " + Suit;
+        }
 
 
         #region INotifyPropertyChanged Members

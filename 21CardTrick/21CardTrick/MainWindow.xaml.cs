@@ -23,21 +23,23 @@ namespace _21CardTrick
         public MainWindow()
         {
             InitializeComponent();
+            ((Dealer)DataContext).Deal();
         }
 
         private void btnCol1_Click(object sender, RoutedEventArgs e)
         {
-            
+            ((Dealer)DataContext).player.indicateCouloumn(0);
+            System.Windows.MessageBox.Show(((Dealer)DataContext).card1.ToStringAlt());
         }
 
         private void btnCol2_Click(object sender, RoutedEventArgs e)
         {
-
+            ((Dealer)DataContext).player.indicateCouloumn(1);
         }
 
         private void btnCol3_Click(object sender, RoutedEventArgs e)
         {
-
+            ((Dealer)DataContext).player.indicateCouloumn(2);
         }
     }
 }

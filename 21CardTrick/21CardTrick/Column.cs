@@ -39,7 +39,7 @@ namespace _21CardTrick
             return id;
         }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         //Getters and setters
         Card getCard(int i)
         {
@@ -51,11 +51,11 @@ namespace _21CardTrick
             cards[i] = c;
         }
         
-=======
+//=======
         public Card[] getCards()
         {
             return cards;
         }
->>>>>>> refs/remotes/origin/master
+//>>>>>>> refs/remotes/origin/master
     }
 }

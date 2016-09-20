@@ -15,12 +15,14 @@ namespace _21CardTrick
         public Player player;
         private Card[] cards21;
 
-
         //constructor
-        Dealer()
+        public Dealer()
         {
             dealNum = 0;
             cards21 = new Card[21];
+            player = new Player();
+            cardBoard = new Board();
+            card1 = new Card(4, 3); //Temp
         }
 
         //methods
