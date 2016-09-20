@@ -14,6 +14,7 @@ namespace _21CardTrick
         private Board cardBoard; 
         public Player player;
         private Card[] cards21;
+        public Card card1 { get; set; }//Temp
 
         //constructor
         public Dealer()
