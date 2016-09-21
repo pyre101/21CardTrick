@@ -14,6 +14,16 @@ namespace _21CardTrick
     {
         //members/properties
         private int dealNum;
+        
+        //Accessor for the deal num. Temporary measure
+        public int DealNum
+        {
+            get
+            {
+                return dealNum;
+            }
+        }
+
         private Deck cardDeck;   //may cause some issues(?) with UI 
         public Board cardBoard { get; set; } 
         public Player player;
@@ -50,6 +60,8 @@ namespace _21CardTrick
         public void Deal()
         {
             
+
+
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
             //addToColumn(int id, Card card)  id is column
