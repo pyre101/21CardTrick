@@ -36,6 +36,7 @@ namespace _21CardTrick
             Random21();
         }
 
+        //Shuffles the full deck of 52 cards
         private void Shuffle()
         {
             int n = fullDeck.Length;
@@ -49,6 +50,7 @@ namespace _21CardTrick
             }
         }
 
+        //Creates new deck of 21 cards
         private void Random21()
         {
             deckOf21 = new Card[21];
