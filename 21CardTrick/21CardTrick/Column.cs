@@ -41,11 +41,11 @@ namespace _21CardTrick
 
 //<<<<<<< HEAD
         //Getters and setters
-        Card getCard(int i)
+        public Card getCard(int i)
         {
             return cards[i];
         }
-        void setCard(int i, Card c)
+        public void setCard(int i, Card c)
         {
             //Shallow copy?
             cards[i] = c;
