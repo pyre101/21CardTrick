@@ -58,9 +58,5 @@ namespace _21CardTrick
                 deckOf21[i] = fullDeck[i];
             }
         }
-
-        public Card getCard(int i){
-            return fullDeck[i];
-        }
     }
 }
