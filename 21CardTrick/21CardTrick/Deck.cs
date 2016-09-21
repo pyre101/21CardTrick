@@ -23,7 +23,7 @@ namespace _21CardTrick
             //Populate deck with cards
             for (int suit = 0; suit < 4; suit++)
             {
-                for (int face = 0; face < 13; face++)
+                for (int face = 1; face < 14; face++)
                 {
                     fullDeck[cardCount++] = new Card(face, suit);
                 }
