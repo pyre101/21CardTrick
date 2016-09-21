@@ -11,7 +11,7 @@ namespace _21CardTrick
         //members
         private int id;
         private int index;
-        public Card[] cards;
+        public Card[] cards { get; set; }
 
         //constructors
         public Column()
@@ -57,5 +57,10 @@ namespace _21CardTrick
             return cards;
         }
 //>>>>>>> refs/remotes/origin/master
+
+        public void resetIndex()
+        {
+            index = 0;
+        }
     }
 }

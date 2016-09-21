@@ -37,5 +37,13 @@ namespace _21CardTrick
             return columns[colId].getCards();
         }
 //>>>>>>> refs/remotes/origin/master
+
+        public void reset()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                columns[i].resetIndex();
+            }
+        }
     }
 }

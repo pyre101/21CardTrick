@@ -49,7 +49,7 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-<!--
+
                 <Image x:Name="image" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
@@ -73,7 +73,7 @@
                         </Style>
                     </Image.Style>
                 </Image>
--->
+
 
                 <TextBox  Text="{Binding Path=FaceValue, Mode=OneWay}" Grid.Column="2" Grid.Row="2" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="30" TextAlignment="Center" IsReadOnly="True" Cursor="Arrow" IsTabStop="False" Focusable="False" SelectionBrush="{x:Null}" SelectionOpacity="0" BorderThickness="0">
                     <TextBox.Style>
@@ -101,7 +101,7 @@
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="CardBack" DataType="{x:Type local:Card}">
-            <!-- <Image Height="175" Width="120" Stretch="Fill" Source="Images/CardBack.png"/> -->
+            <Image Height="175" Width="120" Stretch="Fill" Source="Images/CardBack.png"/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:Card}" >
             <ContentControl Content="{Binding}">
@@ -165,17 +165,54 @@
         <!-- Card Columns -->
         
         <!-- Column 1 -->
-        <ItemsControl x:Name="col1" Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Dealer.card1}" >
+        <!--<ItemsControl x:Name="col1" Grid.Column="1" Grid.Row="5" ItemsSource="{Binding cardBoard}" >
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-        </ItemsControl>
+        </ItemsControl> -->
+
+
+        <!--Temp way to at least have a "working" GUI-->
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="tbcolumn1Card1" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="tbcolumn1Card2" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="7" x:Name="tbcolumn1Card3" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="8" x:Name="tbcolumn1Card4" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="9" x:Name="tbcolumn1Card5" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="10" x:Name="tbcolumn1Card6" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="1" Grid.Row="11" x:Name="tbcolumn1Card7" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+
         <!-- Column 2 -->
+        <!-- <StackPanel Grid.Column="3" Grid.Row="5" Grid.RowSpan="7">
+            <ItemsControl x:Name="DealerHand" DockPanel.Dock="Left" ItemsSource="{Binding card1}" Height="175">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </StackPanel> -->
+
+        <!--Temp way to at least have a "working" GUI-->
+        <TextBox Grid.Column="3" Grid.Row="5" x:Name="tbcolumn2Card1" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="6" x:Name="tbcolumn2Card2" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="7" x:Name="tbcolumn2Card3" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="8" x:Name="tbcolumn2Card4" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="9" x:Name="tbcolumn2Card5" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="10" x:Name="tbcolumn2Card6" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="3" Grid.Row="11" x:Name="tbcolumn2Card7" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
 
         <!-- Column 3 -->
         
+        <!--Temp way to at least have a "working" GUI-->
+        <TextBox Grid.Column="5" Grid.Row="5" x:Name="tbcolumn3Card1" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="6" x:Name="tbcolumn3Card2" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="7" x:Name="tbcolumn3Card3" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="8" x:Name="tbcolumn3Card4" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="9" x:Name="tbcolumn3Card5" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="10" x:Name="tbcolumn3Card6" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
+        <TextBox Grid.Column="5" Grid.Row="11" x:Name="tbcolumn3Card7" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
         
         <!-- Column selecting buttons -->
         <Button x:Name="btnCol1" Grid.Column="1" Grid.Row="13" Click="btnCol1_Click" >Column 1</Button>
@@ -183,5 +220,8 @@
         <Button x:Name="btnCol2" Grid.Column="3" Grid.Row="13" Click="btnCol2_Click" >Column 2</Button>
 
         <Button x:Name="btnCol3" Grid.Column="5" Grid.Row="13" Click="btnCol3_Click" >Column 3</Button>
+        
+        <!-- Start button -->
+        <Button x:Name="btnStart" Grid.Column="3" Grid.Row="14" Click="btnStart_Click" >Deal</Button>
     </Grid>
 </Window>

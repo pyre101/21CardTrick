@@ -3,27 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
 
 namespace _21CardTrick
 {
-    class Dealer
+    class Dealer : INotifyPropertyChanged
     {
         //members/properties
         private int dealNum;
-        //private Deck cardDeck;   //may cause some issues(?) with UI 
-        private Board cardBoard; 
+        private Deck cardDeck;   //may cause some issues(?) with UI 
+        public Board cardBoard { get; set; } 
         public Player player;
-        private Card[] cards21;
-        public Card card1 { get; set; }//Temp
+        //public Card[] cards21 { get; set; }
+        public ObservableCollection<Card> cards21 { get; set; }
+        public Card card1 { get; set; } //Temp. Only exists for testing purposes 
 
         //constructor
         public Dealer()
         {
             dealNum = 0;
-            cards21 = new Card[21];
+            cardDeck = new Deck();
+
+            //cards21 = new Card[21];
+            cards21 = new ObservableCollection<Card>();
+
             player = new Player();
             cardBoard = new Board();
             card1 = new Card(4, 3); //Temp
+
+            //Copy the 21 cards from the deck to the cards21 array
+            for (int i = 0; i < 21; i++)
+            {
+                cards21.Add(cardDeck.getCard(i));
+                //cards21[i] = cardDeck.getCard(i);
+                cards21[i].Visible = true;
+            }
+            
+                OnPropertyChanged(); //Pretty sure this isn't needed
+            
         }
 
         //methods
@@ -35,8 +55,10 @@ namespace _21CardTrick
             //addToColumn(int id, Card card)  id is column
             {
                 cardBoard.addToColumn(i%3, cards21[i]);
-            }            
+            }
+            cardBoard.reset();
             dealNum++;
+            OnPropertyChanged("card1");
         }
 
         public Card revealCard()
@@ -79,5 +101,31 @@ namespace _21CardTrick
                     cards21[i + 14] = tempCol[i];
             }
          }
+
+        #region INotifyPropertyChanged Members
+
+        /// <summary>
+        /// Property Changed Event Handler
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Property Changed Event Handler
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            try
+            {
+
+                if (this.PropertyChanged != null)
+                    this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(MethodBase.GetCurrentMethod().Name + "() -> " + ex.Message);
+            }
+        }
+        #endregion
     }
 }
