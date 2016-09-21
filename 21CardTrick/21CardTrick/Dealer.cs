@@ -100,6 +100,8 @@ namespace _21CardTrick
                 for (int i = 0; i < 7; i++)
                     cards21[i + 14] = tempCol[i];
             }
+
+            Deal();
          }
 
         #region INotifyPropertyChanged Members

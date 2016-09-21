@@ -27,20 +27,22 @@ namespace _21CardTrick
 
         private void btnCol1_Click(object sender, RoutedEventArgs e)
         {
-            ((Dealer)DataContext).player.indicateCouloumn(0);
+            ((Dealer)DataContext).pickupCards(0);
+            //((Dealer)DataContext).player.indicateCouloumn(0);
             updateGUIBoard();
-            //System.Windows.MessageBox.Show(((Dealer)DataContext).card1.ToStringAlt());
         }
 
         private void btnCol2_Click(object sender, RoutedEventArgs e)
         {
-            ((Dealer)DataContext).player.indicateCouloumn(1);
+            ((Dealer)DataContext).pickupCards(1);
+            //((Dealer)DataContext).player.indicateCouloumn(1);
             updateGUIBoard();
         }
 
         private void btnCol3_Click(object sender, RoutedEventArgs e)
         {
-            ((Dealer)DataContext).player.indicateCouloumn(2);
+            ((Dealer)DataContext).pickupCards(2);
+            //((Dealer)DataContext).player.indicateCouloumn(2);
             updateGUIBoard();
         }
 
