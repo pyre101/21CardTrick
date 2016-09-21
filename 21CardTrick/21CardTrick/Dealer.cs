@@ -59,8 +59,11 @@ namespace _21CardTrick
         //methods
         public void Deal()
         {
+<<<<<<< HEAD
             
 
+=======
+>>>>>>> origin/GUI
 
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
