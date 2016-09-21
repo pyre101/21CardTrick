@@ -35,6 +35,7 @@ namespace _21CardTrick
         public Dealer()
         {
             dealNum = 0;
+<<<<<<< HEAD
             cardDeck = new Deck();
 
             //cards21 = new Card[21];
@@ -54,10 +55,16 @@ namespace _21CardTrick
             
                 OnPropertyChanged(); //Pretty sure this isn't needed
             
+=======
+            cards21 = new Card[21];
+            cardBoard = new Board();
+            player = new Player();
+>>>>>>> refs/remotes/origin/master
         }
 
         //methods
         public void Deal()
+<<<<<<< HEAD
         {
 <<<<<<< HEAD
             
@@ -65,13 +72,20 @@ namespace _21CardTrick
 =======
 >>>>>>> origin/GUI
 
+=======
+        {            
+>>>>>>> refs/remotes/origin/master
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
             //addToColumn(int id, Card card)  id is column
             {
                 cardBoard.addToColumn(i%3, cards21[i]);
+<<<<<<< HEAD
             }
             cardBoard.reset();
+=======
+            }             
+>>>>>>> refs/remotes/origin/master
             dealNum++;
             OnPropertyChanged("card1");
         }
