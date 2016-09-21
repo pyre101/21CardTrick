@@ -25,7 +25,7 @@ namespace _21CardTrick
             {
                 for (int face = 0; face < 13; face++)
                 {
-                    fullDeck[cardCount++] = new Card(face, suit);
+                    fullDeck[cardCount++] = new Card(face, suit); 
                 }
             }
 

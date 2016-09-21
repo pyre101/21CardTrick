@@ -21,18 +21,19 @@ namespace _21CardTrick
         {
             dealNum = 0;
             cards21 = new Card[21];
+            cardBoard = new Board();
+            player = new Player();
         }
 
         //methods
         public void Deal()
-        {
-            
+        {            
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
             //addToColumn(int id, Card card)  id is column
             {
                 cardBoard.addToColumn(i%3, cards21[i]);
-            }            
+            }             
             dealNum++;
         }
 
