@@ -30,6 +30,7 @@ namespace _21CardTrick
             ((Dealer)DataContext).pickupCards(0);
             //((Dealer)DataContext).player.indicateCouloumn(0);
             updateGUIBoard();
+            testReveal();
         }
 
         private void btnCol2_Click(object sender, RoutedEventArgs e)
@@ -37,6 +38,7 @@ namespace _21CardTrick
             ((Dealer)DataContext).pickupCards(1);
             //((Dealer)DataContext).player.indicateCouloumn(1);
             updateGUIBoard();
+            testReveal();
         }
 
         private void btnCol3_Click(object sender, RoutedEventArgs e)
@@ -44,13 +46,16 @@ namespace _21CardTrick
             ((Dealer)DataContext).pickupCards(2);
             //((Dealer)DataContext).player.indicateCouloumn(2);
             updateGUIBoard();
+            testReveal();
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            
             ((Dealer)DataContext).Deal();
             updateGUIBoard();
-            
+            grdWelcome.Visibility = System.Windows.Visibility.Hidden;
+            grdTrickView.Visibility = System.Windows.Visibility.Visible;
             
         }
         private void updateGUIBoard()
@@ -81,6 +86,23 @@ namespace _21CardTrick
             tbcolumn3Card5.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(4).ToStringAlt();
             tbcolumn3Card6.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(5).ToStringAlt();
             tbcolumn3Card7.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(6).ToStringAlt();
+        }
+
+        //Tests to see if the conditions to reveal the card have been met
+        private void testReveal()
+        {
+            if (((Dealer)DataContext).DealNum == 4)
+            {
+                revealScreen();
+            }
+        }
+        
+        private void revealScreen()
+        {
+            grdTrickView.Visibility = System.Windows.Visibility.Hidden;
+            grdReveal.Visibility = System.Windows.Visibility.Visible;
+
+            tbRevealedCard.Text = ((Dealer)DataContext).revealCard().ToStringAlt();
         }
     }
 }
