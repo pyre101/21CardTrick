@@ -29,13 +29,11 @@ namespace _21CardTrick
         public Player player;
         //public Card[] cards21 { get; set; }
         public ObservableCollection<Card> cards21 { get; set; }
-        public Card card1 { get; set; } //Temp. Only exists for testing purposes 
 
         //constructor
         public Dealer()
         {
             dealNum = 0;
-<<<<<<< HEAD
             cardDeck = new Deck();
 
             //cards21 = new Card[21];
@@ -43,7 +41,6 @@ namespace _21CardTrick
 
             player = new Player();
             cardBoard = new Board();
-            card1 = new Card(4, 3); //Temp
 
             //Copy the 21 cards from the deck to the cards21 array
             for (int i = 0; i < 21; i++)
@@ -53,41 +50,25 @@ namespace _21CardTrick
                 cards21[i].Visible = true;
             }
             
-                OnPropertyChanged(); //Pretty sure this isn't needed
-            
-=======
-            cards21 = new Card[21];
+            OnPropertyChanged(); //Pretty sure this isn't needed
             cardBoard = new Board();
             player = new Player();
->>>>>>> refs/remotes/origin/master
+
         }
 
         //methods
         public void Deal()
-<<<<<<< HEAD
         {
-<<<<<<< HEAD
-            
-
-=======
->>>>>>> origin/GUI
-
-=======
-        {            
->>>>>>> refs/remotes/origin/master
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
             //addToColumn(int id, Card card)  id is column
             {
                 cardBoard.addToColumn(i%3, cards21[i]);
-<<<<<<< HEAD
             }
             cardBoard.reset();
-=======
-            }             
->>>>>>> refs/remotes/origin/master
+
             dealNum++;
-            OnPropertyChanged("card1");
+            OnPropertyChanged();
         }
 
         public Card revealCard()

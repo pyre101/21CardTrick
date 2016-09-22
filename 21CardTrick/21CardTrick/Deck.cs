@@ -60,5 +60,11 @@ namespace _21CardTrick
                 deckOf21[i] = fullDeck[i];
             }
         }
+
+        //We do need this function. It's how the cards are loaded into dealer.cards21
+        public Card getCard(int i)
+        {
+            return deckOf21[i];
+        }
     }
 }
