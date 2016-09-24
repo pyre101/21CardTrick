@@ -15,6 +15,7 @@ namespace _21CardTrick
 
         public int indicateCouloumn(int columnNum)
         {
+            lastColumnSelect = columnNum;
             return lastColumnSelect;
         }
 

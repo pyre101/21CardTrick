@@ -8,6 +8,8 @@ namespace _21CardTrick
 {
     class Board
     {
+//<<<<<<< HEAD
+//=======
         //members
         public Column[] columns; 
 
@@ -26,10 +28,22 @@ namespace _21CardTrick
         {
             columns[id].addCard(card);
         }
+//<<<<<<< HEAD
+//>>>>>>> refs/remotes/origin/master
+//=======
 
         public Card[] pickupColumn(int colId)
         {
             return columns[colId].getCards();
+        }
+//>>>>>>> refs/remotes/origin/master
+
+        public void reset()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                columns[i].resetIndex();
+            }
         }
     }
 }

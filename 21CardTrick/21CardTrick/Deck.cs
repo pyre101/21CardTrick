@@ -23,7 +23,7 @@ namespace _21CardTrick
             //Populate deck with cards
             for (int suit = 0; suit < 4; suit++)
             {
-                for (int face = 0; face < 13; face++)
+                for (int face = 1; face < 14; face++)
                 {
                     fullDeck[cardCount++] = new Card(face, suit); 
                 }
@@ -59,6 +59,12 @@ namespace _21CardTrick
             {
                 deckOf21[i] = fullDeck[i];
             }
+        }
+
+        //We do need this function. It's how the cards are loaded into dealer.cards21
+        public Card getCard(int i)
+        {
+            return deckOf21[i];
         }
     }
 }

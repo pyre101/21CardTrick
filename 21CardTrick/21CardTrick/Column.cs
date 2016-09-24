@@ -11,7 +11,7 @@ namespace _21CardTrick
         //members
         private int id;
         private int index;
-        public Card[] cards;
+        public Card[] cards { get; set; }
 
         //constructors
         public Column()
@@ -39,9 +39,28 @@ namespace _21CardTrick
             return id;
         }
 
+//<<<<<<< HEAD
+        //Getters and setters
+        public Card getCard(int i)
+        {
+            return cards[i];
+        }
+        public void setCard(int i, Card c)
+        {
+            //Shallow copy?
+            cards[i] = c;
+        }
+        
+//=======
         public Card[] getCards()
         {
             return cards;
+        }
+//>>>>>>> refs/remotes/origin/master
+
+        public void resetIndex()
+        {
+            index = 0;
         }
     }
 }

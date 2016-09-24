@@ -7,6 +7,25 @@ namespace _21CardTrick
 {
     class Card : INotifyPropertyChanged
     {
+        public Card() { }
+
+        public Card(int value, int suit)
+        {
+            _Value = value;
+
+            if(suit == 0){
+                Suit = CardSuit.Club;
+            }
+            else if (suit == 1){
+                Suit = CardSuit.Diamond;
+	        }
+            else if (suit == 2){
+                Suit = CardSuit.Heart;
+            }
+            else if (suit == 3){
+                Suit = CardSuit.Spade;
+            }
+        }
         #region Properties
         /// <summary>
         /// Card Suit enumeration
@@ -66,24 +85,28 @@ namespace _21CardTrick
             }
         }
 
-        ///// <summary>
-        ///// _Visible Property
-        ///// </summary>
-        //private bool _Visible;
-        //public bool Visible
-        //{
-        //    get
-        //    {
-        //        return _Visible;
-        //    }
-        //    set
-        //    {
-        //        _Visible = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        /// <summary>
+        /// _Visible Property
+        /// </summary>
+        private bool _Visible;
+        public bool Visible
+        {
+            get
+            {
+                return _Visible;
+            }
+            set
+            {
+                _Visible = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion // Properties
 
+        public string ToStringAlt()
+        {
+            return  FaceValue + " of " + Suit + "s";
+        }
 
 
         #region INotifyPropertyChanged Members
