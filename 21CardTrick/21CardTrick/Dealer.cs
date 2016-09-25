@@ -78,37 +78,22 @@ namespace _21CardTrick
 
         public void pickupCards(int columnNum)  
         {
-            Card[] tempCol = cardBoard.pickupColumn(columnNum);
-            for (int i = 7; i < 14; i++)  //0-6, 7-13, 14-20
-                cards21[i] = tempCol[i - 7];
-
-            if (columnNum == 0)
+            int k = 0; //for start points of columns that weren't chosen
+            for (int i = 0; i < 3; i++)
             {
-                tempCol = cardBoard.pickupColumn(1);
-                for (int i = 0; i < 7; i++)  //0-6
-                    cards21[i] = tempCol[i];
-                tempCol = cardBoard.pickupColumn(2);
-                for (int i = 0; i < 7; i++)
-                    cards21[i + 14] = tempCol[i];
-            }
-            if (columnNum == 1)
-            {
-                tempCol = cardBoard.pickupColumn(0);
-                for (int i = 0; i < 7; i++)  //0-6
-                    cards21[i] = tempCol[i];
-                tempCol = cardBoard.pickupColumn(2);
-                for (int i = 0; i < 7; i++)
-                    cards21[i + 14] = tempCol[i];
-            }
-            if (columnNum == 2)
-            {
-
-                tempCol = cardBoard.pickupColumn(0);
-                for (int i = 0; i < 7; i++)  //0-6
-                    cards21[i] = tempCol[i];
-                tempCol = cardBoard.pickupColumn(1);
-                for (int i = 0; i < 7; i++)
-                    cards21[i + 14] = tempCol[i];
+                Card[] tempCol = cardBoard.pickupColumn(i);
+                if (i != columnNum)
+                {
+                    for (int j = 0; j < 7; j++)
+                        cards21[j + (k * 7)] = tempCol[j];
+                    k = k + 2;
+                }
+                else
+                {
+                    for (int j = 0; j < 7; j++)
+                        cards21[j + 7] = tempCol[j];
+                }
+                
             }
 
             Deal();
