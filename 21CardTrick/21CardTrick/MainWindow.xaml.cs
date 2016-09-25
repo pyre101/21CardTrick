@@ -20,15 +20,27 @@ namespace _21CardTrick
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Grid[][] cardSlots;
         public MainWindow()
         {
             InitializeComponent();
+            /*cardSlots = new Grid[3][7];
+
+            cardSlots[0][0] = grdcolumn1Card1;
+            cardSlots[0][1] = grdcolumn1Card2;
+            cardSlots[0][2] = grdcolumn1Card3;
+            cardSlots[0][3] = grdcolumn1Card4;
+            cardSlots[0][4] = grdcolumn1Card5;
+            cardSlots[0][5] = grdcolumn1Card6;
+            cardSlots[0][6] = grdcolumn1Card7;*/
+
+            
+            
         }
 
         private void btnCol1_Click(object sender, RoutedEventArgs e)
         {
             ((Dealer)DataContext).pickupCards(0);
-            //((Dealer)DataContext).player.indicateCouloumn(0);
             updateGUIBoard();
             testReveal();
         }
@@ -61,7 +73,7 @@ namespace _21CardTrick
         private void updateGUIBoard()
         {
             //Column 1
-            tbcolumn1Card1.Text = ((Dealer)DataContext).cardBoard.columns[0].getCard(0).ToStringAlt();
+            /*tbcolumn1Card1.Text = ((Dealer)DataContext).cardBoard.columns[0].getCard(0).ToStringAlt();
             tbcolumn1Card2.Text = ((Dealer)DataContext).cardBoard.columns[0].getCard(1).ToStringAlt();
             tbcolumn1Card3.Text = ((Dealer)DataContext).cardBoard.columns[0].getCard(2).ToStringAlt();
             tbcolumn1Card4.Text = ((Dealer)DataContext).cardBoard.columns[0].getCard(3).ToStringAlt();
@@ -85,7 +97,7 @@ namespace _21CardTrick
             tbcolumn3Card4.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(3).ToStringAlt();
             tbcolumn3Card5.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(4).ToStringAlt();
             tbcolumn3Card6.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(5).ToStringAlt();
-            tbcolumn3Card7.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(6).ToStringAlt();
+            tbcolumn3Card7.Text = ((Dealer)DataContext).cardBoard.columns[2].getCard(6).ToStringAlt();*/
         }
 
         //Tests to see if the conditions to reveal the card have been met
@@ -103,6 +115,11 @@ namespace _21CardTrick
             grdReveal.Visibility = System.Windows.Visibility.Visible;
 
             tbRevealedCard.Text = ((Dealer)DataContext).revealCard().ToStringAlt();
+        }
+
+        private void displayCard(int row, int col)
+        {
+            
         }
     }
 }

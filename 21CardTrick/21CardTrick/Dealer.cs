@@ -50,7 +50,7 @@ namespace _21CardTrick
                 cards21[i].Visible = true;
             }
             
-            OnPropertyChanged(); //Pretty sure this isn't needed
+            OnPropertyChanged();
             cardBoard = new Board();
             player = new Player();
 
@@ -59,6 +59,7 @@ namespace _21CardTrick
         //methods
         public void Deal()
         {
+            cardBoard.clearColumns();
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
             //addToColumn(int id, Card card)  id is column
