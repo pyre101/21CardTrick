@@ -105,7 +105,7 @@ namespace _21CardTrick
 
         public string ToStringAlt()
         {
-            return  FaceValue + " of " + Suit + "s";
+            return  "The " + FaceValue + " of " + Suit + "s";
         }
 
 

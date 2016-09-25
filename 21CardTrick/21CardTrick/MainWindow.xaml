@@ -153,8 +153,9 @@
                 21 Card Trick
             </TextBlock>
 
-            <TextBlock x:Name="tbWelcomeMsg"  Grid.Row="1" Background="#33000000" TextAlignment="Center" VerticalAlignment="Center" FontSize="40">
-                Welcome message
+            <TextBlock x:Name="tbWelcomeMsg"  Grid.Row="1" Background="#33000000" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="Wrap">
+                Welcome to the 21 card magic trick. To play, you must secretly select a card, then indicate to the dealer which column it is
+                in three times.
             </TextBlock>
 
             <!-- Start button -->
@@ -192,6 +193,7 @@
             <RowDefinition Height="*" /> <!-- White space -->
         </Grid.RowDefinitions>
         
+        <!-- Header -->
         <TextBlock x:Name="tbTrickTitle" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" Background="#33000000" TextAlignment="Center" FontSize="40">
             21 Card Trick
         </TextBlock>
@@ -212,17 +214,6 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
 
-            <!--Temp way to at least have a "working" GUI-->
-<!--    
-        <TextBox Grid.Column="1" Grid.Row="5" x:Name="tbcolumn1Card1" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="6" x:Name="tbcolumn1Card2" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="7" x:Name="tbcolumn1Card3" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="8" x:Name="tbcolumn1Card4" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="9" x:Name="tbcolumn1Card5" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="10" x:Name="tbcolumn1Card6" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="1" Grid.Row="11" x:Name="tbcolumn1Card7" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
--->
-
         <!-- Column 2 -->
             <ItemsControl x:Name="col2" Grid.Column="3" Grid.Row="5" Grid.RowSpan="7" ItemsSource="{Binding cardBoard.Cols[1]._Cards}" >
                 <ItemsControl.ItemsPanel>
@@ -232,15 +223,6 @@
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
 
-            <!--Temp way to at least have a "working" GUI
-        <TextBox Grid.Column="3" Grid.Row="5" x:Name="tbcolumn2Card1" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="6" x:Name="tbcolumn2Card2" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="7" x:Name="tbcolumn2Card3" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="8" x:Name="tbcolumn2Card4" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="9" x:Name="tbcolumn2Card5" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="10" x:Name="tbcolumn2Card6" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="3" Grid.Row="11" x:Name="tbcolumn2Card7" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
--->
         <!-- Column 3 -->
             <ItemsControl x:Name="col3" Grid.Column="5" Grid.Row="5" Grid.RowSpan="7" ItemsSource="{Binding cardBoard.Cols[2]._Cards}" >
                 <ItemsControl.ItemsPanel>
@@ -249,15 +231,7 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
-            <!--Temp way to at least have a "working" GUI
-        <TextBox Grid.Column="5" Grid.Row="5" x:Name="tbcolumn3Card1" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="6" x:Name="tbcolumn3Card2" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="7" x:Name="tbcolumn3Card3" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="8" x:Name="tbcolumn3Card4" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="9" x:Name="tbcolumn3Card5" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="10" x:Name="tbcolumn3Card6" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
-        <TextBox Grid.Column="5" Grid.Row="11" x:Name="tbcolumn3Card7" TextAlignment="Center" VerticalAlignment="Center" ></TextBox>
--->
+            
             <!-- Column selecting buttons -->
         <Button x:Name="btnCol1" Grid.Column="1" Grid.Row="13" Click="btnCol1_Click" >Column 1</Button>
 
@@ -271,15 +245,30 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <TextBlock x:Name="tbRevealTitle"  Grid.Row="0" Background="#33000000" TextAlignment="Center" VerticalAlignment="Center" FontSize="40">
                 21 Card Trick
             </TextBlock>
 
+
+            <TextBlock x:Name="tbRevealHeader" Grid.Row="1" Background="#33000000" TextAlignment="Center" VerticalAlignment="Center" FontSize="40">
+                Your card is:
+            </TextBlock>
+
+            <StackPanel Grid.Row="2">
             <TextBlock x:Name="tbRevealedCard"  Grid.Row="1" Background="#33000000" TextAlignment="Center" VerticalAlignment="Center" FontSize="40">
                 
-            </TextBlock>            
+            </TextBlock>
+
+            <ItemsControl x:Name="reveal" ItemsSource="{Binding playersCard}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
