@@ -24,11 +24,11 @@ namespace _21CardTrick
             }
         }
 
-        private Deck cardDeck;   //may cause some issues(?) with UI 
+        private Deck cardDeck;
         public Board cardBoard { get; set; } 
         public Player player;
-        //public Card[] cards21 { get; set; }
         public ObservableCollection<Card> cards21 { get; set; }
+        public ObservableCollection<Card> playersCard { get; set; }
 
         //constructor
         public Dealer()
@@ -46,19 +46,18 @@ namespace _21CardTrick
             for (int i = 0; i < 21; i++)
             {
                 cards21.Add(cardDeck.getCard(i));
-                //cards21[i] = cardDeck.getCard(i);
                 cards21[i].Visible = true;
             }
-            
-            OnPropertyChanged(); //Pretty sure this isn't needed
             cardBoard = new Board();
             player = new Player();
-
+            playersCard = new ObservableCollection<Card>();
+            OnPropertyChanged();
         }
 
         //methods
         public void Deal()
         {
+            cardBoard.clearColumns();
             for(int i = 0; i < 21; i++)
             //deckOf21[i] starting at 0-20
             //addToColumn(int id, Card card)  id is column
@@ -68,6 +67,10 @@ namespace _21CardTrick
             cardBoard.reset();
 
             dealNum++;
+            if (dealNum == 4)
+            {
+                playersCard.Add(cards21[10]);
+            }
             OnPropertyChanged();
         }
 
