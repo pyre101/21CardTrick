@@ -264,7 +264,7 @@
             <ItemsControl x:Name="reveal" ItemsSource="{Binding playersCard}" >
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <VirtualizingStackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
